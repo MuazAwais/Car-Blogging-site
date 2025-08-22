@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiAlignJustify, FiSend, FiX } from "react-icons/fi";
+import Subscription from "../shared/subscription";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,9 +43,7 @@ function Navbar() {
               </li>
             </ul>
             <div>
-              <button className="bg-[#ff5959] text-[#ffffff] py-3 px-10 font-bold rounded hover:border-collapse hover:bg-[#f0f0f0] hover:text-[#232536] flex">
-                Subscribe <FiSend />
-              </button>
+              <Subscription />
             </div>
           </div>
           {/* mobile menu */}
