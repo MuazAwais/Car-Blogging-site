@@ -8,7 +8,7 @@ function AllCategory() {
         <h3 className="text-[24px] md:text-[32px] font-bold">All Category</h3>
         <div className="border-b-4 mx-4 mb-4  border-black w-8"></div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-9 mt-8">
+      <div className="grid grid-cols-1 justify-self-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-9 mt-8">
         {category.map((category) => (
           <div
             key={category.id}
