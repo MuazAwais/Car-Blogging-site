@@ -42,11 +42,11 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <div className="flex-wrap mx-3 justify-between items-center sm:gap-6 md:flex lg:flex-nowrap sm:mx-12 p-10 bg-[#ffffff1e] rounded ">
+        <div className="flex-wrap mx-3 justify-between items-center  sm:gap-6 md:flex lg:flex-nowrap sm:mx-12 p-10 bg-[#ffffff1e] rounded ">
           <p className="text-[18px] font-bold leading-5  md:leading-8 sm:text-[23px]  md:text-[24px] lg:text-[27px] flex">
             Subscribe to our news letter to get latest updates and news
           </p>
-          <div className="flex gap-4 w-full flex-col sm:flex-row mt-5 sm:mt-0">
+          <div className="flex gap-4 w-full flex-col sm:flex-row mt-5 sm:mt-5 md:mt-0">
             <input
               name="email"
               id="email"

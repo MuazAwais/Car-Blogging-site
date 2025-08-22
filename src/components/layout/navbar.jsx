@@ -1,14 +1,20 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { FiAlignJustify, FiSend, FiX } from "react-icons/fi";
 import Subscription from "../shared/subscription";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
+  
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  
   const handleNavigate = () => {
     window.location.href = "/";
   };

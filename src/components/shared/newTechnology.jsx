@@ -3,10 +3,10 @@ const NewTechnology = ({ data }) => {
     <div className="max-w-[1280px] mx-auto px-4 py-10 font-poppins">
       <div className="flex justify-between items-center mb-6">
         <div className="flex gap-2">
-          <h2 className="text-[30px] md:text-[36px] font-bold ">
+          <h2 className="text-[25px] sm:text-[30px] md:text-[36px] font-bold ">
             New Technology
           </h2>
-          <div className="border-b-4 mb-4 border-black w-8"></div>
+          <div className="border-b-4 mb-4 border-black w-8 hidden sm:block"></div>
         </div>
         <p className="text-[16px] font-semibold">See all</p>
       </div>
