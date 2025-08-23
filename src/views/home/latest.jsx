@@ -1,12 +1,12 @@
 const Latest = ({ data }) => {
   return (
-    <div className="pt-[30px] md:pt-[60px] font-poppins">
+    <div className="pt-[10px] md:pt-[20px] font-poppins">
       <div>
-        <h3 className="text-[30px] md:text-[36px] font-bold font-poppins ">Latest</h3>
+        <h3 className="text-[30px] md:text-[36px] font-bold font-poppins mb-3">Latest</h3>
       </div>
       <div>
         {data?.slice(0, 1).map((blog) => (
-          <div key={blog?.id} className="flex flex-col gap-4 md:gap-8 ">
+          <div key={blog?.id} className="flex flex-col gap-2 md:gap-8 ">
             <div className="">
               <img src={blog?.img} alt={blog?.title} className="w-full h-auto rounded-lg"/>
             </div>
@@ -21,7 +21,7 @@ const Latest = ({ data }) => {
           </div>
         ))}
       </div>
-      <div className="flex items-center mt-8">
+      <div className="flex items-center mt-4">
         <button className="bg-[#FF6666] text-white py-3 px-14 rounded hover:bg-[#FF4C4C]">
           Read More
         </button>

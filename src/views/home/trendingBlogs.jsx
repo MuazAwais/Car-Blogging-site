@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 
 const TrendingBlogs = ({ data }) => {
   return (
-    <div className="pt-[30px] md:pt-[60px] font-poppins ">
-      <div className="flex justify-between items-center">
+    <div className="pt-[10px] md:pt-[20px] font-poppins">
+      <div className="flex justify-between items-center mb-3">
         <h3 className="text-[30px] md:text-[36px] font-bold">Trending Blogs</h3>
         <Link to="/blogs" className="text-[16px] font-semibold">
           See all
         </Link>
       </div>
-      <div className="flex flex-col gap-4 ">
-        {data?.slice(0, 4).map((blog) => (
+      <div className="flex flex-col">
+        {data?.slice(0, 5).map((blog) => (
           <div
             key={blog?.id}
             className="flex flex-col gap-2 odd:bg-[#FF6666] odd:text-white  p-4 rounded"
