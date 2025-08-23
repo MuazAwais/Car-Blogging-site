@@ -4,6 +4,7 @@ import BlogsPage from "./views/blogs/index";
 import About from "./views/about/index";
 import Contact from "./views/contect/index";
 import Layout from "./components/layout";
+import PrivacyPolicy from "./views/privacyPolicy";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
     </Layout>
   );

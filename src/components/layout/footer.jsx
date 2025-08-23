@@ -37,7 +37,7 @@ function Footer() {
                 <Link to="/contact">Contact Us</Link>
               </li>
               <li className="hover:font-bold hover:underline">
-                <Link to="/privacy">Privacy Policy</Link>
+                <Link to="/privacy-policy">Privacy Policy</Link>
               </li>
             </ul>
           </div>
