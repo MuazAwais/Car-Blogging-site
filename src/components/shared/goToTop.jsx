@@ -21,7 +21,7 @@ const GoToTop = () => {
         };
     }, []);
   return (
-    <div className="fixed bottom-4 right-4">
+    <div className="fixed bottom-16 right-4">
         <button onClick={scrollToTop} id="go-to-top" className="p-3 bg-[#ff5959] text-white rounded-full shadow-lg hover:bg-[#ff4747] transition">
             <FaArrowUp className="animate-bounce" />
         </button>

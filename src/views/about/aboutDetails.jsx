@@ -1,7 +1,7 @@
 const AboutDetail = () => {
   return (
     <div className="mt-[25px]">
-      <h2 className="mx-5 font-extrabold text-[40px]">About</h2>
+      <h2 className="mx-2 font-extrabold text-[25px] sm:text-[30px] md:text-[35px] lg:text-[40px] ">About</h2>
       <hr className="border-b-2 mx-6 my-[48px]" />
       <div className="mx-8">
         <h3 className=" font-bold text-[25px] ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit possimus blanditiis qui vel a reiciendis optio, voluptatibus asperiores cum ad libero voluptate mollitia?</h3>

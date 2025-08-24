@@ -9,7 +9,7 @@ function Footer() {
   };
   return (
     <div className="bg-[#232536] text-white font-poppins">
-      <div className="max-w-[1280px] mx-auto py-[15px] lg:px-[50px] justify-between items-center px-4">
+      <div className="max-w-[1280px] mx-auto py-[15px] justify-between items-center px-4">
         <div className="flex justify-between items-center mb-6">
           <div className="flex gap-x-4 items-center">
             <div
