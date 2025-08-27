@@ -1,7 +1,7 @@
 import { MdPhoneInTalk, MdEmail } from "react-icons/md";
-import { FaDiscord, FaTwitter } from "react-icons/fa";
+import { FaDiscord} from "react-icons/fa";
 import { LuInstagram } from "react-icons/lu";
-import { FaLocationDot } from "react-icons/fa6";
+import { FaLocationDot, FaXTwitter } from "react-icons/fa6";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -38,38 +38,38 @@ const ContactForm = () => {
           Any question or remarks? Just write us a message!
         </span>
       </div>
-      <div className="mx-auto flex flex-col-reverse md:flex-row items-center gap-16 max-w-fit border-2">
+      <div className="mx-auto flex flex-col-reverse md:flex-row justify-between items-center gap-8 border-2 w-full">
         <div className="bg-[#232536] text-[#ffffff] max-w-[480px] flex flex-col justify-around p-[40px]">
           <div>
             <h2 className="font-semibold text-[28px]">Contact Information</h2>
-            <p className="text-[18px] px-4">
+            <p className="text-[16px]">
               Say something to start a live chat!
             </p>
           </div>
           <div className="text-[20px] mt-[40px]">
-            <p className="flex gap-4 py-6">
+            <p className="flex gap-4 py-6 items-center">
               <MdPhoneInTalk /> +1012 2456 7890
             </p>
-            <p className="flex gap-4 py-6">
+            <p className="flex gap-4 py-6 items-center">
               <MdEmail /> info@carblog.com
             </p>
-            <p className="flex gap-4 py-6">
+            <p className="flex gap-4 py-6 items-center">
               <FaLocationDot /> 123 Main St, Anytown, USA
             </p>
           </div>
           <div className="flex gap-8 text-[20px] mt-[46px]">
-            <span className="px-2 py-2 rounded-full hover:bg-white hover:text-black">
-              <FaTwitter />
+            <span className="px-2 py-2 rounded-full hover:bg-white hover:text-black hover:transition-all duration-1000">
+              <FaXTwitter />
             </span>
-            <span className="px-2 py-2 rounded-full hover:bg-white hover:text-black">
+            <span className="px-2 py-2 rounded-full hover:bg-white hover:text-black hover:transition-all duration-1000">
               <LuInstagram />
             </span>
-            <span className="px-2 py-2 rounded-full hover:bg-white hover:text-black">
+            <span className="px-2 py-2 rounded-full hover:bg-white hover:text-black hover:transition-all duration-1000">
               <FaDiscord />
             </span>
           </div>
         </div>
-        <div className="w-[380px] p-[40px]">
+        <div className="max-w-[480px] mx-auto mt-[40px] ">
           <h2 className="font-semibold text-[28px]">Send Us a Message</h2>
           <form
             className="flex flex-col mt-[20px]"
@@ -114,13 +114,7 @@ const ContactForm = () => {
               onChange={formik.handleChange}
               name="message"
             ></textarea>
-            <div>
-              {formik.errors.message && formik.touched.message && (
-                <p className="mt-1 text-sm text-red-600">
-                  {formik.errors.message}
-                </p>
-              )}
-            </div>
+            
             <button
               type="submit"
               className="bg-[#ff5959] text-[#ffffff] py-2 rounded"

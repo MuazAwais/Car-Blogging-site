@@ -1,9 +1,8 @@
-import React from "react";
-import Mokeup from "../home/mokeup";
+
+
 const PrivacyPolicy = () => {
   return (
     <div className="max-w-[1280px] mx-auto">
-      <Mokeup />
       <h1 className="text-3xl font-bold my-6">Privacy Policy</h1>
       <section
         id="info-we-collect"
@@ -180,7 +179,7 @@ const PrivacyPolicy = () => {
         </p>
         <div className="mt-2 rounded-xl bg-gray-50 p-4 text-gray-800">
           <p>
-            <span className="font-medium">Email:</span> [your email]
+            <span className="font-medium">Email:</span> xyz@example.com
           </p>
           <p>
             <span className="font-medium">Website:</span> [your website URL]

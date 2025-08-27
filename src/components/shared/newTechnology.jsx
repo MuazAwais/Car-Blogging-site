@@ -14,7 +14,7 @@ const NewTechnology = ({ data }) => {
         {data?.slice(1, 5).map((post) => (
           <div
             key={post?.id}
-            className=" p-4 mx-auto border rounded-lg bg-[#D9D9D9] hover:bg-slate-200 transition-colors"
+            className=" p-4 mx-auto border rounded-lg bg-[#D9D9D9] hover:bg-slate-200 transition-colors hover:cursor-pointer active:bg-slate-300 transition-all"
           >
             <div className="w-full ">
               <img src={post?.img} alt={post?.title}  className="w-full h-auto rounded-lg object-cover"/>
