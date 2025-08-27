@@ -9,7 +9,7 @@ function Footer() {
   };
   return (
     <div className="bg-[#232536] text-white font-poppins">
-      <div className="max-w-[1280px] mx-auto py-[15px] lg:px-[50px] justify-between items-center px-4">
+      <div className="max-w-[1280px] mx-auto py-[15px] justify-between items-center px-4">
         <div className="flex justify-between items-center mb-6">
           <div className="flex gap-x-4 items-center">
             <div
@@ -64,7 +64,7 @@ function Footer() {
             <p>Finstreet 118 2561 abctown</p>
             <p>example@femail.com 001 21345 442</p>
           </div>
-          <div className="flex gap-6 text-[20px] mt-auto">
+          <div className="flex gap-6 text-[20px] mt-auto justify-center">
             <FaFacebook />
             <FaTwitter />
             <FaInstagram />

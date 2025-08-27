@@ -9,7 +9,7 @@ import { Blogs, BlogsV2 } from "../../lib/data"
 
 const Home = () => {
   return (
-    <div >
+    <div className="">
       <Mokeup/>
       <div className='max-w-[1280px] grid lg:grid-cols-2 mx-auto gap-4 px-4'>
       <Latest data={Blogs}/>

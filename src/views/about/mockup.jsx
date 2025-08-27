@@ -22,7 +22,7 @@ const Mokeup = () => {
             tellus facilisis consequat pretium. Et faucibus laoreet molestie
             diam semper fames diam eget.
           </p>
-          <button className="bg-[#ff5959] w-max  text-[#f0f0f0] py-[18px] flex px-8 font-bold rounded hover:border-collapse hover:bg-[#f0f0f0] hover:text-black">
+          <button className="bg-[#ff5959] w-max  text-[#f0f0f0] py-[12px] flex px-6 md:py-[18px] md:px-8 font-bold rounded hover:border-collapse hover:bg-[#f0f0f0] hover:text-black">
             Subscribe <FiSend />
           </button>
         </div>
