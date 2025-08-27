@@ -1,5 +1,5 @@
-import React from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { FiSend } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
@@ -66,7 +66,7 @@ function Footer() {
           </div>
           <div className="flex gap-6 text-[20px] mt-auto justify-center">
             <FaFacebook />
-            <FaTwitter />
+            <FaXTwitter />
             <FaInstagram />
             <FaLinkedin />
           </div>
