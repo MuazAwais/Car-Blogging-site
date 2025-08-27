@@ -64,7 +64,7 @@ function Footer() {
             <p>Finstreet 118 2561 abctown</p>
             <p>example@femail.com 001 21345 442</p>
           </div>
-          <div className="flex gap-6 text-[20px] mt-auto">
+          <div className="flex gap-6 text-[20px] mt-auto justify-center">
             <FaFacebook />
             <FaTwitter />
             <FaInstagram />
