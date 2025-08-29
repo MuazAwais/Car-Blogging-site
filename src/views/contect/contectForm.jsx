@@ -4,6 +4,7 @@ import { LuInstagram } from "react-icons/lu";
 import { FaLocationDot, FaXTwitter } from "react-icons/fa6";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 const ContactForm = () => {
   const validationSchema = Yup.object({
@@ -26,10 +27,19 @@ const ContactForm = () => {
       message: "",
     },
     validationSchema,
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       console.log(JSON.stringify(values, null, 2));
+      resetForm();
     },
   });
+  const {
+    values,
+    errors,
+    touched,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+  } = formik;
   return (
     <div className="max-w-[960px] mx-auto p-4 font-poppins ">
       <div className="max-w-[480px] mx-auto text-center my-[40px]">
@@ -38,8 +48,8 @@ const ContactForm = () => {
           Any question or remarks? Just write us a message!
         </span>
       </div>
-      <div className="mx-auto flex flex-col-reverse md:flex-row justify-between items-center gap-8 border-2 w-full">
-        <div className="bg-[#232536] text-[#ffffff] max-w-[480px] flex flex-col justify-around p-[40px]">
+      <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-8 border-2 w-full rounded-xl">
+        <div className="bg-[#232536] text-[#ffffff] flex flex-col justify-around w-full items-center p-10 rounded-b-xl md:rounded-l-xl">
           <div>
             <h2 className="font-semibold text-[28px]">Contact Information</h2>
             <p className="text-[16px]">
@@ -59,62 +69,88 @@ const ContactForm = () => {
           </div>
           <div className="flex gap-8 text-[20px] mt-[46px]">
             <span className="px-2 py-2 rounded-full hover:bg-white hover:text-black hover:transition-all duration-1000">
-              <FaXTwitter />
+              <Link to='https://twitter.com/i/flow/login'>
+                <FaXTwitter />
+              </Link>
             </span>
             <span className="px-2 py-2 rounded-full hover:bg-white hover:text-black hover:transition-all duration-1000">
-              <LuInstagram />
+              <Link to='https://www.instagram.com/'>
+                <LuInstagram />
+              </Link>
             </span>
             <span className="px-2 py-2 rounded-full hover:bg-white hover:text-black hover:transition-all duration-1000">
-              <FaDiscord />
+              <Link to='https://discord.com/'>
+                <FaDiscord />
+              </Link>
             </span>
           </div>
         </div>
-        <div className="max-w-[480px] mx-auto mt-[40px] ">
+        <div className="w-full flex flex-col p-10 gap-2.5">
           <h2 className="font-semibold text-[28px]">Send Us a Message</h2>
           <form
-            className="flex flex-col mt-[20px]"
-            onSubmit={formik.handleSubmit}
+            className="flex flex-col gap-5"
+            onSubmit={handleSubmit}
           >
+            <div className="relative">
             <input
               type="text"
               placeholder="Your Name"
-              className="p-2 mb-4 border-b border-gray-300 rounded"
-              value={formik.values.yourName}
-              onChange={formik.handleChange}
+              className={`p-2 mb-4 border-b border-gray-300 rounded w-full  ${
+                    errors.yourName && touched.yourName
+                      ? "border-red-500 bg-red-50"
+                      : "border-gray-300"
+                  }`}
+              value={values.yourName}
+              onChange={handleChange}
+              onBlur={handleBlur}
               name="yourName"
             />
-            <div>
-              {" "}
-              {formik.errors.yourName && formik.touched.yourName && (
-                <p className="mt-1 text-sm text-red-600">
-                  {formik.errors.yourName}
+              {errors.yourName && touched.yourName && (
+                <p className="text-sm text-red-600 absolute top-10">
+                  {errors.yourName}
                 </p>
               )}
             </div>
+            <div className="relative">
             <input
               type="email"
               placeholder="Your Email"
-              className="p-2 mb-4 border-b border-gray-300 rounded"
-              value={formik.values.email}
-              onChange={formik.handleChange}
+              className={`p-2 mb-4 border-b border-gray-300 w-full ${
+                    errors.email && touched.email
+                      ? "border-red-500 bg-red-50"
+                      : "border-gray-300"
+                  }`}
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
               name="email"
             />
-            <div>
-              {formik.errors.email && formik.touched.email && (
-                <p className="mt-1 text-sm text-red-600">
-                  {formik.errors.email}
+              {errors.email && touched.email && (
+                <p className="text-sm text-red-600 absolute top-10">
+                  {errors.email}
                 </p>
               )}
             </div>
+            <div className="relative">
             <textarea
               placeholder="Your Message"
-              className="p-2 mb-4 border-b border-gray-300 rounded"
+              className={`p-2 border-b border-gray-300 rounded w-full ${
+                    errors.message && touched.message
+                      ? "border-red-500 bg-red-50"
+                      : "border-gray-300"
+                  }`}
               rows="4"
-              value={formik.values.message}
-              onChange={formik.handleChange}
+              value={values.message}
+              onChange={handleChange}
+              onBlur={handleBlur}
               name="message"
             ></textarea>
-            
+            {errors.message && touched.message && (
+              <p className="text-sm text-red-600 absolute top-[115px]">
+                {errors.message}
+              </p>
+            )}
+            </div>
             <button
               type="submit"
               className="bg-[#ff5959] text-[#ffffff] py-2 rounded"

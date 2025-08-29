@@ -182,11 +182,11 @@ const PrivacyPolicy = () => {
             <span className="font-medium">Email:</span> xyz@example.com
           </p>
           <p>
-            <span className="font-medium">Website:</span> [your website URL]
+            <span className="font-medium">Website:</span> https://www.example.com
           </p>
           <p>
-            <span className="font-medium">Postal Address (optional):</span>{" "}
-            [address]
+            <span className="font-medium">Postal Address:</span>
+             123 Main St, Anytown, USA
           </p>
         </div>
       </section>

@@ -2,7 +2,7 @@ const NewArticle = ({ data }) => {
   return (
     <>
       <div className="max-w-[1280px] mx-auto px-2 ">
-        <h1 className="text-3xl font-bold my-8">All Posts</h1>
+        <h1 className="text-3xl font-bold my-8 mx-0 md:mx-8">All Posts</h1>
         <hr className="my-4 border-t border-gray-300" />
         {data?.slice(1, 5).map((item) => (
           <div
@@ -38,8 +38,8 @@ const NewArticle = ({ data }) => {
                 </div>
               </div>
               <div className="gap-6 lg:gap-14 flex flex-col">
-                <p className="text-[14px] md:text-[16px]">{item.content}</p>
-                <button className="bg-[#ff5959] text-white font-bold text-[12px] md:text-[14px] px-2 py-1 md:px-5 md:py-2  rounded-md w-fit hover:bg-[#d46069] hover:shadow-lg active:text-gray-50 active:bg-[#77232a]">
+                <p className="text-[13px] md:text-[16px]">{item.content}</p>
+                <button className="bg-[#ff5959] w-max  text-[#f0f0f0] py-[12px] flex px-6 md:py-[18px] md:px-8 font-bold rounded hover:border-collapse hover:bg-[#f0f0f0] hover:text-black">
                   Read full article...
                 </button>
               </div>
