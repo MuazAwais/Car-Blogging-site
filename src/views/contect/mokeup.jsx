@@ -30,7 +30,7 @@ const Mokeup = ({ data }) => {
             >
               <div className=" bg-black bg-opacity-50 p-4">
                 <div className="max-w-[1280px] mx-auto">
-                  <h2 className="font-bold text-[30px] sm:text-[40px] md:text-[50px] max-w-[450px] mx-[90px] my-[100px] text-white ">
+                  <h2 className="font-bold text-[30px] sm:text-[40px] md:text-[50px] max-w-[450px] mx-[50px] md:mx-[90px] my-[100px] text-white ">
                     {page?.title}
                   </h2>
                 </div>

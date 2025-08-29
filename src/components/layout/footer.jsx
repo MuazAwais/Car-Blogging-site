@@ -65,10 +65,18 @@ function Footer() {
             <p>example@femail.com 001 21345 442</p>
           </div>
           <div className="flex gap-6 text-[20px] mt-auto justify-center">
-            <FaFacebook />
-            <FaXTwitter />
-            <FaInstagram />
-            <FaLinkedin />
+            <Link className="px-2 py-2 rounded-full hover:bg-white hover:text-black hover:transition-all duration-1000 hover:shadow-lg hover:shadow-slate-600" to='https://www.facebook.com/'>
+              <FaFacebook />
+            </Link>
+            <Link className="px-2 py-2 rounded-full hover:bg-white hover:text-black hover:transition-all duration-1000 hover:shadow-lg hover:shadow-slate-600" to='https://twitter.com/i/flow/login'>
+              <FaXTwitter />
+            </Link>
+            <Link className="px-2 py-2 rounded-full hover:bg-white hover:text-black hover:transition-all duration-1000 hover:shadow-lg hover:shadow-slate-600" to='https://www.instagram.com/'>
+              <FaInstagram />
+            </Link>
+            <Link className="px-2 py-2 rounded-full hover:bg-white hover:text-black hover:transition-all duration-1000 hover:shadow-lg hover:shadow-slate-600" to='https://www.linkedin.com/feed/'>
+              <FaLinkedin />
+            </Link>
           </div>
         </div>
       </div>
