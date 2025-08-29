@@ -49,7 +49,7 @@ const ContactForm = () => {
         </span>
       </div>
       <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-8 border-2 w-full rounded-xl">
-        <div className="bg-[#232536] text-[#ffffff] flex flex-col justify-around w-full items-center p-10 rounded-b-xl md:rounded-l-xl">
+        <div className="bg-[#232536] text-[#ffffff] flex flex-col justify-around w-full items-center p-10 rounded-b-xl md:rounded-l-xl md:rounded-br-none">
           <div>
             <h2 className="font-semibold text-[28px]">Contact Information</h2>
             <p className="text-[16px]">
