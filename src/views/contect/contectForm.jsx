@@ -28,7 +28,9 @@ const ContactForm = () => {
     },
     validationSchema,
     onSubmit: (values, { resetForm }) => {
-      console.log(JSON.stringify(values, null, 2));
+      const jsonData = JSON.stringify(values, null, 2);
+      window.localStorage.setItem("contactFormData", jsonData);
+      console.log(jsonData);
       resetForm();
     },
   });
