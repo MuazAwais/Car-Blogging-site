@@ -7,6 +7,8 @@ import * as Yup from "yup";
 import { Link } from "react-router-dom";
 
 const ContactForm = () => {
+  const { isToast, setIsToast } = useState(false);
+
   const validationSchema = Yup.object({
     yourName: Yup.string()
       .min(2, "Too Short!")
@@ -28,6 +30,7 @@ const ContactForm = () => {
     },
     validationSchema,
     onSubmit: (values, { resetForm }) => {
+
       const jsonData = JSON.stringify(values, null, 2);
       window.localStorage.setItem("contactFormData", jsonData);
       console.log(jsonData);
@@ -162,6 +165,8 @@ const ContactForm = () => {
           </form>
         </div>
       </div>
+      {/* {isToast && <Toast message="Form submitted successfully!" />} */}
+      
     </div>
   );
 };

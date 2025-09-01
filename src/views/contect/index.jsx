@@ -3,7 +3,6 @@ import { Blogs } from '../../lib/data'
 import ContactForm from './contectForm'
 
 
-
 function Contact() {
   return (
     <div className=' mx-auto mb-[100px]'>
