@@ -5,9 +5,11 @@ import { FaLocationDot, FaXTwitter } from "react-icons/fa6";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Toaster } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 const ContactForm = () => {
-  const { isToast, setIsToast } = useState(false);
 
   const validationSchema = Yup.object({
     yourName: Yup.string()
@@ -30,7 +32,7 @@ const ContactForm = () => {
     },
     validationSchema,
     onSubmit: (values, { resetForm }) => {
-
+      toast("Form submitted successfully!")
       const jsonData = JSON.stringify(values, null, 2);
       window.localStorage.setItem("contactFormData", jsonData);
       console.log(jsonData);
@@ -166,7 +168,7 @@ const ContactForm = () => {
         </div>
       </div>
       {/* {isToast && <Toast message="Form submitted successfully!" />} */}
-      
+      <Toaster richColors />
     </div>
   );
 };
