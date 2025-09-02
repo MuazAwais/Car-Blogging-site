@@ -1,4 +1,7 @@
+import { Router, useNavigate } from "react-router-dom";
+
 const NewArticle = ({ data }) => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="max-w-[1280px] mx-auto px-2 ">
@@ -39,7 +42,7 @@ const NewArticle = ({ data }) => {
               </div>
               <div className="gap-6 lg:gap-14 flex flex-col">
                 <p className="text-[13px] md:text-[16px]">{item.content}</p>
-                <button className="bg-[#ff5959] w-max  text-[#f0f0f0] py-[12px] flex px-6 md:py-[18px] md:px-8 font-bold rounded hover:border-collapse hover:bg-[#f0f0f0] hover:text-black">
+                <button className="bg-[#ff5959] w-max  text-[#f0f0f0] py-[12px] flex px-6 md:py-[18px] md:px-8 font-bold rounded hover:border-collapse hover:bg-[#f0f0f0] hover:text-black" onClick={() => navigate(`/blog/${item.id}`)}>
                   Read full article...
                 </button>
               </div>

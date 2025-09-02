@@ -168,7 +168,7 @@ const ContactForm = () => {
         </div>
       </div>
       {/* {isToast && <Toast message="Form submitted successfully!" />} */}
-      <Toaster richColors />
+      <Toaster position="top-right" />
     </div>
   );
 };
