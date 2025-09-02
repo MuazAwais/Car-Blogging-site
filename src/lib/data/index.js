@@ -1,4 +1,4 @@
-export const Blogs = [
+export const BlogsData = [
   {
     id: 1,
     img : "https://res.cloudinary.com/dv8dtipj1/image/upload/v1752951767/Rectangle_5_1_punyj2.svg",
