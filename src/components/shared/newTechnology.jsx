@@ -8,7 +8,7 @@ const NewTechnology = ({ data }) => {
           </h2>
           <div className="border-b-4 mb-4 border-black w-8 hidden sm:block"></div>
         </div>
-        <p className="text-[16px] font-semibold">See all</p>
+        <p className="text-[16px] font-semibold hover:cursor-pointer">See all</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
         {data?.slice(1, 5).map((post) => (
@@ -16,18 +16,18 @@ const NewTechnology = ({ data }) => {
             key={post?.id}
             className=" p-4 mx-auto border rounded-lg bg-[#D9D9D9] hover:bg-slate-200 hover:cursor-pointer active:bg-slate-300 transition-all"
           >
-            <div className="w-full ">
-              <img src={post?.img} alt={post?.title}  className="w-full h-auto rounded-lg object-cover"/>
+            <div className="w-[260px] h-[190px]">
+              <img src={post?.img} alt={post?.title}  className="w-full h-full rounded-lg object-cover"/>
             </div>
             {post?.author ? (
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col">
                 <h3 className="text-lg font-semibold mt-2">{post?.title}</h3>
-                <div className="mt-8">
-                  <div className="flex items-center">
+                <div className="flex justify-between items-center mt-4">
+                  <div className="flex items-center ">
                     <img
                       src={post?.authorAvatar}
                       alt={post?.authorName}
-                      className="w-12 h-12 rounded-full object-cover mr-2"
+                      className=" rounded-full object-cover mr-2 w-12 h-12"
                     />
                     <div>
                       <h4 className="text-sm font-semibold">

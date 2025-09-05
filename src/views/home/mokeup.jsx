@@ -6,7 +6,7 @@ const Mokeup = () => {
     <div className=" max-w-[1280px] pt-[40px] pb-[36px] flex mx-auto text-white font-poppins" >
       <div className="flex flex-col  bg-cover bg-center pl-4 lg:pl-11 gap-8">
         <h2 className='font-bold text-[44px] leading-[1.2]  sm:text-[50px] md:text-[58px] lg:text-[66px] xl:text-[70px]'>Your Journey <br />Your Car <br />Your Way</h2>
-        <p className=' text-[14px] sm:text-[16px] leading-snug max-w-[400px]  sm:max-w-[650px]'>Lorem ipsum dolor sit amet consectetur. Diam volutpat morbi elementum vel euismod aliquam. Amet ultrices neque augue consectetur purus phasellus. Ullamcorper lorem montes varius amet vestibulum tellus facilisis consequat pretium. Et faucibus laoreet molestie diam semper fames diam eget.
+        <p className=' text-[14px] sm:text-[16px] leading-snug max-w-[400px]  sm:max-w-[650px]'>Every car tells a story, and every journey is unique. Whether you’re a passionate driver, an auto enthusiast, or simply someone who loves the freedom of the open road, this is your space to explore. Our blog celebrates the bond between people and their cars — from road trips and car reviews to maintenance tips and the latest automotive trends.
         </p>
         <button className="bg-[#ff5959] w-max  text-[#f0f0f0] py-[12px] flex px-6 md:py-[18px] md:px-8 font-bold rounded hover:border-collapse hover:bg-[#f0f0f0] hover:text-black">
             Subscribe <FiSend />
