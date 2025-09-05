@@ -11,11 +11,7 @@ const Mokeup = () => {
             Your Way
           </h2>
           <p className="py-5 text-[14px] sm:text-[16px] leading-snug max-w-[400px]  sm:max-w-[550px]">
-            Lorem ipsum dolor sit amet consectetur. Diam volutpat morbi
-            elementum vel euismod aliquam. Amet ultrices neque augue consectetur
-            purus phasellus. Ullamcorper lorem montes varius ametvestibulum
-            tellus facilisis consequat pretium. Et faucibus laoreet molestie
-            diam semper fames diam eget.
+            Every car tells a story, and every journey is unique. Whether you’re a passionate driver, an auto enthusiast, or simply someone who loves the freedom of the open road, this is your space to explore. Our blog celebrates the bond between people and their cars — from road trips and car reviews to maintenance tips and the latest automotive trends.
           </p>
           <button className="bg-[#ff5959] w-max  text-[#f0f0f0] py-[12px] flex px-6 md:py-[18px] md:px-8 font-bold rounded hover:border-collapse hover:bg-[#f0f0f0] hover:text-black">
             Subscribe <FiSend />
