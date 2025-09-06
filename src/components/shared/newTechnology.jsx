@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const NewTechnology = ({ data }) => {
   return (
     <div className="max-w-[1280px] mx-auto px-4 py-5 font-poppins">
@@ -8,7 +10,7 @@ const NewTechnology = ({ data }) => {
           </h2>
           <div className="border-b-4 mb-4 border-black w-8 hidden sm:block"></div>
         </div>
-        <p className="text-[16px] font-semibold hover:cursor-pointer">See all</p>
+        <Link className="text-[16px] font-semibold hover:cursor-pointer" to="/blogs">See all</Link>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
         {data?.slice(1, 5).map((post) => (
@@ -16,8 +18,8 @@ const NewTechnology = ({ data }) => {
             key={post?.id}
             className=" p-4 mx-auto border rounded-lg bg-[#D9D9D9] hover:bg-slate-200 hover:cursor-pointer active:bg-slate-300 transition-all"
           >
-            <div className="w-[260px] h-[190px]">
-              <img src={post?.img} alt={post?.title}  className="w-full h-full rounded-lg object-cover"/>
+            <div className="">
+              <img src={post?.img} alt={post?.title}  className="w-full rounded-lg object-cover"/>
             </div>
             {post?.author ? (
               <div className="flex flex-col">

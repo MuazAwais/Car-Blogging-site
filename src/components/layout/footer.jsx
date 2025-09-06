@@ -1,9 +1,19 @@
+import { useState } from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiSend } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 function Footer() {
+  const [email, setEmail] = useState("");
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+  }
+   const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Submitted email:', email);
+        setEmail('');
+      };
   const handleNavigate = () => {
     window.location.href = "/";
   };
@@ -53,8 +63,10 @@ function Footer() {
               type="email"
               placeholder="example@email.com"
               className="sm:max-w-[380px] w-full bg-white text-[#232536] py-[10px] px-2 rounded flex"
+              onChange={handleChange}
+              value={email}
             />
-            <button className="bg-[#ff5959] text-[#f0f0f0] py-[10px] flex px-8 font-bold rounded-xl hover:border-collapse hover:bg-[#f0f0f0] hover:text-black justify-center items-center">
+            <button onClick={handleSubmit} className="bg-[#ff5959] text-[#f0f0f0] py-[10px] flex px-8 font-bold rounded-xl hover:border-collapse hover:bg-[#f0f0f0] hover:text-black justify-center items-center">
               Subscribe <FiSend />
             </button>
           </div>

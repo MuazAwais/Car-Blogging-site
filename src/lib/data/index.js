@@ -19,7 +19,7 @@ Because true classics never go out of style.`,
     date : "June 02, 2024",
     author: "Jane Smith",
     content: `There was a time when every car carried a personality. The growl of the engine, the weight of the steering wheel, the shine of chrome bumpers — all spoke of an era when cars were more than transportation. They were companions, symbols of freedom, and in many ways, an extension of their owner’s identity.
-Vintage cars hold a special place in the hearts of enthusiasts because they embody that golden age. Unlike today’s sleek, computer-driven vehicles, old cars were designed with heart and handcraftsmanship. Every detail — from wooden dashboards to tailfins that soared like wings — was created to impress, to inspire, and to last.`,
+Vintage cars hold a special place in the hearts of enthusiasts because they embody that golden age.`,
     authorName: "Jane Smith",
     authorBio: "Automotive journalist with a passion for classic cars.",
     authorAvatar: "https://res.cloudinary.com/dv8dtipj1/image/upload/v1752951749/Ellipse_81_cprmwb.svg"
@@ -30,8 +30,8 @@ Vintage cars hold a special place in the hearts of enthusiasts because they embo
     title: "The Golden Era of Muscle Cars – Vintage American Legends",
     date : "March 23, 2025",
     author: "Mike Johnson",
-    content: `When you think of raw power and roaring engines, nothing compares to the golden era of American muscle cars. From the late 1960s to the early 1970s, the roads were ruled by legends like the Ford Mustang, Dodge Charger, Chevrolet Camaro, and Pontiac GTO. These cars weren’t just transportation — they were a cultural movement.
-With bold designs, aggressive stances, and V8 engines that could shake the ground, muscle cars defined an entire generation. They symbolized freedom, rebellion, and individuality. People didn’t just buy them to get around; they bought them to make a statement.`,
+    content: `When you think of raw power and roaring engines, nothing compares to the golden era of American muscle cars. From the late 1960s to the early 1970s, the roads were ruled by legends like the Ford Mustang. These cars weren’t just transportation — they were a cultural movement.
+With bold designs and V8 engines that could shake the ground, muscle cars defined an entire generation. They symbolized freedom and individuality.`,
     authorName: "Mike Johnson",
     authorBio: "Car reviewer and tech enthusiast.",
     authorAvatar: "https://res.cloudinary.com/dv8dtipj1/image/upload/v1757094431/venrick-azcueta-17qa33WJ6zI-unsplash_ltqyhp.jpg"
@@ -42,9 +42,8 @@ With bold designs, aggressive stances, and V8 engines that could shake the groun
     title: "European Elegance – Vintage Cars That Redefined Luxury",
     date : "April 16, 2024",
     author: "Emily Davis",
-    content: `While American cars were known for muscle, Europe carved its reputation through elegance, style, and engineering finesse. Vintage European cars like the Jaguar E-Type, Mercedes-Benz 300SL, Ferrari 250 GTO, and Porsche 911 became icons of design and sophistication.
-
-These cars were built not just to move but to mesmerize. The flowing lines, hand-stitched leather interiors, and precision handling made them rolling works of art. Owning one wasn’t about showing off; it was about experiencing automotive perfection.`,
+    content: `While American cars were known for muscle, Europe carved its reputation through elegance, style, and engineering finesse. Vintage European cars like the Jaguar E-Type, Mercedes-Benz 300SL and Porsche 911 became icons of design and sophistication.
+These cars were built not just to move but to mesmerize. The flowing lines and precision handling made them rolling works of art. Owning one wasn’t about showing off; it was about experiencing automotive perfection.`,
     authorName: "Emily Davis",
     authorBio: "Expert in electric vehicles and sustainable transportation.",
     authorAvatar: "https://res.cloudinary.com/dv8dtipj1/image/upload/v1757094434/podmatch-CgCH4V4cNGk-unsplash_u8zumd.jpg"
@@ -71,22 +70,22 @@ export const BlogsV2 =[
   },
   {
     id: 2,
-    img : "https://plus.unsplash.com/premium_photo-1664303847960-586318f59035?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    img : "https://res.cloudinary.com/dv8dtipj1/image/upload/v1757098370/jorge-zapata-pBs0koIAF3s-unsplash_pjovn9.jpg",
     title: "The Golden Era of Muscle – Vintage American Legends",
   },
   {
     id: 3,
-    img : "https://plus.unsplash.com/premium_photo-1661891539075-24b4e473f67f?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    img : "https://res.cloudinary.com/dv8dtipj1/image/upload/v1757098372/lucas-marconnet-txpghtHmrVQ-unsplash_dlfdxz.jpg",
     title: "The Art of Restoration – Bringing Vintage Cars Back to Life",
   },
   {
     id: 4,
-    img : "https://plus.unsplash.com/premium_photo-1737455898443-2a5c4ad3197b?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    img : "https://res.cloudinary.com/dv8dtipj1/image/upload/v1757098372/severin-demchuk-Qw1VPF8_fws-unsplash_orc0kb.jpg",
     title: "Legends on Wheels: Exploring the World’s Most Iconic Classic Cars",
   },
   {
     id: 5,
-    img : "https://plus.unsplash.com/premium_photo-1693828613509-6df717e8180a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    img : "https://res.cloudinary.com/dv8dtipj1/image/upload/v1757098371/vladimir-kudinov-6Un8kM_XQOk-unsplash_ivzacj.jpg",
     title: "The Timeless Appeal of Vintage Cars: A Journey Through Design and Innovation",
   },
 

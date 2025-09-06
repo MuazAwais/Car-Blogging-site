@@ -19,7 +19,7 @@ const NewArticle = ({ data }) => {
                 className="w-full h-auto rounded-lg object-cover "
               />
             </div>
-            <div className="lg:max-w-[660px] gap-2 lg:gap-6 flex flex-col">
+            <div className="lg:max-w-[660px] gap-2 lg:gap-4 flex flex-col">
               <h3 className="text-[20px] md:text-[24px] font-bold">
                 {item.title}
               </h3>
@@ -40,7 +40,7 @@ const NewArticle = ({ data }) => {
                   </div>
                 </div>
               </div>
-              <div className="gap-6 lg:gap-14 flex flex-col">
+              <div className="gap-2 lg:gap-6 flex flex-col">
                 <p className="text-[13px] md:text-[16px]">{item.content}</p>
                 <button className="bg-[#ff5959] w-max  text-[#f0f0f0] py-[12px] flex px-6 md:py-[18px] md:px-8 font-bold rounded hover:border-collapse hover:bg-[#f0f0f0] hover:text-black" onClick={() => navigate(`/blog/${item.id}`)}>
                   Read full article...
