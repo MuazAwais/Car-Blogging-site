@@ -6,7 +6,7 @@ import Contact from "./views/contect/index";
 import Layout from "./components/layout";
 import PrivacyPolicy from "./views/privacyPolicy";
 import SingleBlogView from "./views/blogs/singleBlogView";
-import { BlogsData } from "./lib/data";
+import singleBlogViewData from "./lib/data/singleBlogViewData";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blogs" element={<BlogsPage />} />
-        <Route path="/blog/:id" element={<SingleBlogView data={BlogsData} />} />
+        <Route path="/blog/:id" element={<SingleBlogView data={singleBlogViewData} />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />

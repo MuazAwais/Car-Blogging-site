@@ -12,19 +12,17 @@ function Testimonials() {
             What people say about our blog
           </h4>
           <p className="text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor.
+            I love how every story reminds me why I fell in love with cars in the first place. Informative, nostalgic, and beautifully written.
           </p>
         </div>
         <hr  className="border border-gray-600 w-full lg:rotate-90 lg:w-[450px]"/>
         {/* Comment section */}
         <div className="w-full lg:max-w-[600px] flex flex-col justify-center text-white gap-8">
           <p className="text-white font-bold text-[19px] md:text-[24px] leading-[32px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+           The Golden Era of Muscle Cars – Vintage American Legends
           </p>
           <div className="flex items-center  mt-auto  ">
-            <div className="w-[70px]">
+            <div className="w-[55px]">
               <img
                 src="https://res.cloudinary.com/dv8dtipj1/image/upload/v1752951749/Ellipse_81_cprmwb.svg"
                 alt="Jonathan Vallem"

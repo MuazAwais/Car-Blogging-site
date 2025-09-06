@@ -1,7 +1,12 @@
 import React from "react";
 import categories from "../../lib/data/category/category";
+import { useNavigate } from "react-router-dom";
 function AllCategory() {
   const category = categories.slice(0, 4);
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/blogs");
+  };
   return (
     <div className="max-w-[1280px] mx-auto px-4   py-8 font-poppins">
       <div className="flex">
@@ -12,6 +17,7 @@ function AllCategory() {
         {category.map((category) => (
           <div
             key={category.id}
+            onClick={handleNavigate}
             className="max-w-[265px] w-full px-4 py-6 mx-auto bg-[#D9D9D9] hover:bg-slate-200 transition-colors rounded-lg flex flex-col gap-2 justify-center items-center"
           >
             <div className="max-w-[90px] mx-auto w-full mb-4">

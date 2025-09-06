@@ -1,28 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FiAlignJustify, FiSend, FiX } from "react-icons/fi";
+import { FiAlignJustify, FiX } from "react-icons/fi";
 import Subscription from "../shared/subscription";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // sidebar
+  const [isModalOpen, setIsModalOpen] = useState(false); // subscription modal
   const location = useLocation();
 
   useEffect(() => {
-    setIsOpen(false);
+    setIsOpen(false); // close sidebar on route change
   }, [location]);
-  
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  const handleSubscribeModel = () => {
+    setIsOpen(false);      // close sidebar
+    setIsModalOpen(true);  // open subscription modal
   };
-  
+
+  const handleCloseModal = () => setIsModalOpen(false);
+
   const handleNavigate = () => {
     window.location.href = "/";
   };
+
   return (
     <>
       <nav className="flex bg-[#232536] text-white font-poppins">
         <div className="max-w-[1280px] mx-auto flex py-[15px] px-4 lg:px-[50px] justify-between items-center w-full">
-          {/*logo*/}
+          {/* logo */}
           <div
             className="w-[60px] flex items-center rounded-full overflow-hidden hover:cursor-pointer"
             onClick={handleNavigate}
@@ -32,37 +39,34 @@ function Navbar() {
               alt="logo"
             />
           </div>
-          {/*desktop menu*/}
-          <div className="hidden md:flex gap-10 items-center ">
-            <ul className="flex gap-10 items-center text-[16px] font-semibold  ">
-              <li className="hover:font-bold hover:underline hover:underline-offset-8">
-                <Link to="/">Home</Link>
-              </li>
-              <li className="hover:font-bold hover:underline hover:underline-offset-8">
-                <Link to="/blogs">Blogs</Link>
-              </li>
-              <li className="hover:font-bold hover:underline hover:underline-offset-8">
-                <Link to="/about">About</Link>
-              </li>
-              <li className="hover:font-bold hover:underline hover:underline-offset-8">
-                <Link to="/contact">Contact Us</Link>
-              </li>
+
+          {/* desktop menu */}
+          <div className="hidden md:flex gap-10 items-center">
+            <ul className="flex gap-10 items-center text-[16px] font-semibold">
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/blogs">Blogs</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
             </ul>
+             <button
+                className="bg-[#ff5959] text-[#ffffff] py-3 px-10 font-bold rounded hover:bg-[#f0f0f0] hover:scale-105 transition-all duration-200"
+                onClick={handleSubscribeModel}
+              >
+                Subscribe
+              </button>
             <div>
-              <Subscription />
+              <Subscription open={isModalOpen} onClose={handleCloseModal} />
             </div>
           </div>
-          {/* mobile menu */}
+
+          {/* mobile menu toggle */}
           <div className="block md:hidden">
             <button onClick={toggleMenu} className="text-white">
-              {isOpen ? (
-                <FiX className="text-4xl" />
-              ) : (
-                <FiAlignJustify className="text-4xl" />
-              )}
+              {isOpen ? <FiX className="text-4xl" /> : <FiAlignJustify className="text-4xl" />}
             </button>
           </div>
-          {/* mobile menu dropdown */}
+
+          {/* overlay */}
           {isOpen && (
             <div
               className="fixed inset-0 bg-black bg-opacity-50 z-5 transition-opacity duration-300"
@@ -91,18 +95,10 @@ function Navbar() {
               }`}
               style={{ transitionDelay: isOpen ? "150ms" : "0ms" }}
             >
-              <li className="hover:font-bold transition-all duration-200 hover:scale-105">
-                <Link to="/">Home</Link>
-              </li>
-              <li className="hover:font-bold transition-all duration-200 hover:scale-105">
-                <Link to="/blogs">Blogs</Link>
-              </li>
-              <li className="hover:font-bold transition-all duration-200 hover:scale-105">
-                <Link to="/about">About</Link>
-              </li>
-              <li className="hover:font-bold transition-all duration-200 hover:scale-105">
-                <Link to="/contact">Contact Us</Link>
-              </li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/blogs">Blogs</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
             </ul>
 
             <div
@@ -111,13 +107,21 @@ function Navbar() {
               }`}
               style={{ transitionDelay: isOpen ? "250ms" : "0ms" }}
             >
-              <button className="bg-[#ff5959] text-[#ffffff] py-3 px-10 font-bold rounded hover:bg-[#f0f0f0] hover:scale-105 transition-all duration-200">
+              <button
+                className="bg-[#ff5959] text-[#ffffff] py-3 px-10 font-bold rounded hover:bg-[#f0f0f0] hover:scale-105 transition-all duration-200"
+                onClick={handleSubscribeModel}
+              >
                 Subscribe
               </button>
             </div>
           </div>
         </div>
       </nav>
+
+      {/* Subscription Modal (global, works for both desktop & mobile) */}
+      {isModalOpen && (
+        <Subscription open={isModalOpen} onClose={handleCloseModal} />
+      )}
     </>
   );
 }
