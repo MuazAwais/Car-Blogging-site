@@ -1,12 +1,47 @@
 // SingleBlogView.jsx
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { blogAPI } from "../../lib/api";
 
-const SingleBlogView = ({ data }) => {
+const SingleBlogView = () => {
   const { id } = useParams();
-  const blog = data?.find((item) => item?.id.toString() === id); // match ID
+  const [blog, setBlog] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  if (!blog) {
-    return <p>Blog not found.</p>;
+  useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        setLoading(true);
+        const data = await blogAPI.getById(id);
+        setBlog(data);
+      } catch (err) {
+        setError(err.message);
+        console.error('Error fetching blog:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (id) {
+      fetchBlog();
+    }
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <p className="text-xl">Loading...</p>
+      </div>
+    );
+  }
+
+  if (error || !blog) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <p className="text-xl text-red-600">Blog not found.</p>
+      </div>
+    );
   }
 
   return (
@@ -25,13 +60,11 @@ const SingleBlogView = ({ data }) => {
         />
         <div>
           <p className="font-bold text-sm">{blog?.authorName}</p>
-          <p className="text-[10px] text-gray-500">{blog?.date} · 3 Min Read</p>
+          <p className="text-[10px] text-gray-500">{blog?.date} · {Math.ceil(blog?.content?.length / 200)} Min Read</p>
         </div>
       </div>
       <div className="flex flex-col gap-10">
-        <p className="text-sm sm:text-md md:text-lg">{blog?.content}</p>
-        <p className="text-sm sm:text-md md:text-lg">{blog?.content}</p>
-        <p className="text-sm sm:text-md md:text-lg">{blog?.content}</p>
+        <p className="text-sm sm:text-md md:text-lg whitespace-pre-line">{blog?.content}</p>
       </div>
     </div>
   );

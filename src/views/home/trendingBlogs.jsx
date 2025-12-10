@@ -11,8 +11,9 @@ const TrendingBlogs = ({ data }) => {
       </div>
       <div className="flex flex-col">
         {data?.slice(0, 5).map((blog) => (
-          <div
-            key={blog?.id}
+          <Link
+            key={blog?._id || blog?.id}
+            to={`/blog/${blog?._id || blog?.id}`}
             className="flex flex-col gap-2 odd:bg-[#FF6666] odd:text-white  p-4 rounded hover:cursor-pointer"
           >
             <div className="flex gap-2">
@@ -22,7 +23,7 @@ const TrendingBlogs = ({ data }) => {
               <p className="text-[12px]">{blog?.date}</p>
             </div>
             <h4 className="text-[18px] md:text-[20px] lg:text-[24px] font-semibold">{blog?.title}</h4>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

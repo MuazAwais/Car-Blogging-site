@@ -9,7 +9,7 @@ const NewArticle = ({ data }) => {
         <hr className="my-4 border-t border-gray-300" />
         {data?.slice(1, 5).map((item) => (
           <div
-            key={item.id}
+            key={item._id || item.id}
             className="max-w-[1160px] mx-auto flex flex-col lg:flex-row my-10 gap-4"
           >
             <div className="">
@@ -36,13 +36,13 @@ const NewArticle = ({ data }) => {
                   <div className="flex gap-1 text-[12px]">
                     <p>{item.date}</p>
                     <span className="font-extrabold">.</span>
-                    <p>3 Min Read</p>
+                    <p>{Math.ceil(item.content?.length / 200) || 3} Min Read</p>
                   </div>
                 </div>
               </div>
               <div className="gap-2 lg:gap-6 flex flex-col">
                 <p className="text-[13px] md:text-[16px]">{item.content}</p>
-                <button className="bg-[#ff5959] w-max  text-[#f0f0f0] py-[12px] flex px-6 md:py-[18px] md:px-8 font-bold rounded hover:border-collapse hover:bg-[#f0f0f0] hover:text-black" onClick={() => navigate(`/blog/${item.id}`)}>
+                <button className="bg-[#ff5959] w-max  text-[#f0f0f0] py-[12px] flex px-6 md:py-[18px] md:px-8 font-bold rounded hover:border-collapse hover:bg-[#f0f0f0] hover:text-black" onClick={() => navigate(`/blog/${item._id || item.id}`)}>
                   Read full article...
                 </button>
               </div>

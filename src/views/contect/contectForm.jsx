@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
+import { contactAPI } from "../../lib/api";
 
 const ContactForm = () => {
 
@@ -31,12 +32,17 @@ const ContactForm = () => {
       message: "",
     },
     validationSchema,
-    onSubmit: (values, { resetForm }) => {
-      toast("Form submitted successfully!")
-      const jsonData = JSON.stringify(values, null, 2);
-      window.localStorage.setItem("contactFormData", jsonData);
-      console.log(jsonData);
-      resetForm();
+    onSubmit: async (values, { resetForm, setSubmitting }) => {
+      try {
+        setSubmitting(true);
+        await contactAPI.submit(values);
+        toast.success("Form submitted successfully! We'll get back to you soon.");
+        resetForm();
+      } catch (error) {
+        toast.error(error.message || "Failed to submit form. Please try again.");
+      } finally {
+        setSubmitting(false);
+      }
     },
   });
   const {
@@ -160,9 +166,10 @@ const ContactForm = () => {
             </div>
             <button
               type="submit"
-              className="bg-[#ff5959] text-[#ffffff] py-2 rounded"
+              disabled={formik.isSubmitting}
+              className="bg-[#ff5959] text-[#ffffff] py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Send Message
+              {formik.isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>

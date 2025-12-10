@@ -15,7 +15,7 @@ const NewTechnology = ({ data }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
         {data?.slice(1, 5).map((post) => (
           <div
-            key={post?.id}
+            key={post?._id || post?.id}
             className=" p-4 mx-auto border rounded-lg bg-[#D9D9D9] hover:bg-slate-200 hover:cursor-pointer active:bg-slate-300 transition-all"
           >
             <div className="">

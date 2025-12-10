@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { FiX } from "react-icons/fi";
+import { subscriptionAPI } from "../../lib/api";
+import { toast } from "sonner";
 
 function Subscription({ open, onClose }) {
   if (!open) return null; 
-  const [email, setEmail] = React.useState("");
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    
     setEmail(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!email) {
+      toast.error("Please enter your email");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      await subscriptionAPI.subscribe(email);
+      toast.success("Successfully subscribed to newsletter!");
+      setEmail("");
+      onClose();
+    } catch (error) {
+      toast.error(error.message || "Failed to subscribe. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
   
   return (
@@ -28,7 +51,7 @@ function Subscription({ open, onClose }) {
         </h2>
 
         {/* Input + Button */}
-        <form className="flex flex-col gap-4" >
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <label htmlFor="email" className="text-sm font-semibold">
               Email:
             </label>
@@ -41,12 +64,14 @@ function Subscription({ open, onClose }) {
             value={email}
             placeholder="Enter your email"
             className="border border-gray-300 rounded-lg text-black p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+            disabled={loading}
           />
           <button
             type="submit"
-            className="bg-[#ff5959] text-white py-3 px-10 w-fit rounded-lg font-bold hover:bg-[#e64e4e] transition"
+            disabled={loading}
+            className="bg-[#ff5959] text-white py-3 px-10 w-fit rounded-lg font-bold hover:bg-[#e64e4e] transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Subscribe
+            {loading ? "Subscribing..." : "Subscribe"}
           </button>
         </form>
       </div>

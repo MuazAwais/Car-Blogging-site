@@ -3,17 +3,36 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiSend } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { subscriptionAPI } from "../../lib/api";
+import { toast } from "sonner";
 
 function Footer() {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  
   const handleChange = (e) => {
     setEmail(e.target.value);
   }
-   const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Submitted email:', email);
-        setEmail('');
-      };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!email) {
+      toast.error("Please enter your email");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      await subscriptionAPI.subscribe(email);
+      toast.success("Successfully subscribed to newsletter!");
+      setEmail('');
+    } catch (error) {
+      toast.error(error.message || "Failed to subscribe. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
   const handleNavigate = () => {
     window.location.href = "/";
   };
@@ -65,9 +84,14 @@ function Footer() {
               className="sm:max-w-[380px] w-full bg-white text-[#232536] py-[10px] px-2 rounded flex"
               onChange={handleChange}
               value={email}
+              disabled={loading}
             />
-            <button onClick={handleSubmit} className="bg-[#ff5959] text-[#f0f0f0] py-[10px] flex px-8 font-bold rounded-xl hover:border-collapse hover:bg-[#f0f0f0] hover:text-black justify-center items-center">
-              Subscribe <FiSend />
+            <button 
+              onClick={handleSubmit} 
+              disabled={loading}
+              className="bg-[#ff5959] text-[#f0f0f0] py-[10px] flex px-8 font-bold rounded-xl hover:border-collapse hover:bg-[#f0f0f0] hover:text-black justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? "Subscribing..." : <>Subscribe <FiSend /></>}
             </button>
           </div>
         </div>
