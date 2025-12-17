@@ -2,6 +2,7 @@
 import Navbar from './navbar'
 import Footer from './footer'
 import GoToTop from '../shared/goToTop'
+import ApiStatus from '../debug/ApiStatus'
 
 function Layout({children}) {
   return (
@@ -10,6 +11,7 @@ function Layout({children}) {
         {children}
         <Footer/>
         <GoToTop />
+        {import.meta.env.DEV && <ApiStatus />}
     </div>
   )
 }

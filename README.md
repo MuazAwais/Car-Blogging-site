@@ -1,12 +1,104 @@
-# React + Vite
+# Car Blogging Site
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack car blogging website built with React, Node.js, Express, and MongoDB.
 
-Currently, two official plugins are available:
+## 🚀 Quick Start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Run Both Servers (Recommended)
 
-## Expanding the ESLint configuration
+```bash
+npm run dev:all
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This will start both backend and frontend servers simultaneously!
+
+- **Backend**: http://localhost:5000
+- **Frontend**: http://localhost:5173
+
+### Run Servers Separately
+
+**Backend only:**
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+**Frontend only:**
+```bash
+npm install
+npm run dev
+```
+
+## 📋 Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB (local or MongoDB Atlas)
+- npm or yarn
+
+## 🛠️ Setup
+
+1. **Install dependencies:**
+   ```bash
+   # Frontend
+   npm install
+   
+   # Backend
+   cd backend
+   npm install
+   ```
+
+2. **Configure environment variables:**
+   
+   Create `backend/.env`:
+   ```env
+   MONGODB_URI=mongodb://localhost:27017/car-blog
+   PORT=5000
+   JWT_SECRET=your-secret-key
+   ```
+   
+   Create `.env` in root:
+   ```env
+   VITE_API_BASE_URL=http://localhost:5000/api
+   ```
+
+3. **Seed database (optional):**
+   ```bash
+   cd backend
+   npm run seed
+   ```
+
+## 📚 Documentation
+
+- [SETUP.md](./SETUP.md) - Complete setup guide
+- [QUICK_START.md](./QUICK_START.md) - Quick start guide
+- [RUN_BOTH.md](./RUN_BOTH.md) - Running both servers
+- [AUTHENTICATION.md](./AUTHENTICATION.md) - Authentication system
+- [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) - Troubleshooting guide
+
+## ✨ Features
+
+- ✅ Blog management (CRUD)
+- ✅ User authentication (JWT)
+- ✅ Contact form
+- ✅ Newsletter subscriptions
+- ✅ Categories
+- ✅ Testimonials
+- ✅ Responsive design
+- ✅ Modern UI with Tailwind CSS
+
+## 🎯 Available Scripts
+
+- `npm run dev` - Start frontend only
+- `npm run dev:all` - Start both servers ⭐
+- `npm run dev:backend` - Start backend only
+- `npm run dev:frontend` - Start frontend only
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+
+## 📖 Learn More
+
+- [React Documentation](https://react.dev/)
+- [Vite Documentation](https://vitejs.dev/)
+- [Express Documentation](https://expressjs.com/)
+- [MongoDB Documentation](https://www.mongodb.com/docs/)

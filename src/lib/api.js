@@ -4,21 +4,47 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000
 // Helper function for API calls
 const apiCall = async (endpoint, options = {}) => {
   try {
-    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        ...options.headers,
-      },
+    const url = `${API_BASE_URL}${endpoint}`;
+    console.log('API Call:', url, options.method || 'GET');
+    
+    // Get token from localStorage
+    const token = localStorage.getItem('token');
+    
+    const headers = {
+      'Content-Type': 'application/json',
+      ...options.headers,
+    };
+    
+    // Add authorization header if token exists
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+    
+    const response = await fetch(url, {
+      headers,
       ...options,
     });
 
-    if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.error || error.message || 'Something went wrong');
+    // Handle non-JSON responses
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      const text = await response.text();
+      throw new Error(`Server returned non-JSON response: ${text}`);
     }
 
-    return await response.json();
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || data.message || `HTTP ${response.status}: ${response.statusText}`);
+    }
+
+    return data;
   } catch (error) {
+    // Enhanced error logging
+    if (error.name === 'TypeError' && error.message.includes('fetch')) {
+      console.error('Network Error - Is the backend server running?', error);
+      throw new Error('Cannot connect to server. Please ensure the backend is running on http://localhost:5000');
+    }
     console.error('API Error:', error);
     throw error;
   }
@@ -83,4 +109,25 @@ export const testimonialAPI = {
 
 // Health check
 export const healthCheck = () => apiCall('/health');
+
+// Auth API
+export const authAPI = {
+  register: (data) => apiCall('/auth/register', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  }),
+  login: (data) => apiCall('/auth/login', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  }),
+  getMe: () => apiCall('/auth/me'),
+  updateProfile: (data) => apiCall('/auth/profile', {
+    method: 'PUT',
+    body: JSON.stringify(data),
+  }),
+  changePassword: (data) => apiCall('/auth/change-password', {
+    method: 'PUT',
+    body: JSON.stringify(data),
+  }),
+};
 

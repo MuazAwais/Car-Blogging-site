@@ -6,6 +6,8 @@ import Contact from "./views/contect/index";
 import Layout from "./components/layout";
 import PrivacyPolicy from "./views/privacyPolicy";
 import SingleBlogView from "./views/blogs/singleBlogView";
+import Login from "./views/auth/Login";
+import Register from "./views/auth/Register";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Layout>
   );

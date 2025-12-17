@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FiAlignJustify, FiX } from "react-icons/fi";
 import Subscription from "../shared/subscription";
+import { useAuth } from "../../context/AuthContext";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false); // sidebar
   const [isModalOpen, setIsModalOpen] = useState(false); // subscription modal
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
     setIsOpen(false); // close sidebar on route change
@@ -23,6 +26,11 @@ function Navbar() {
 
   const handleNavigate = () => {
     window.location.href = "/";
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
   };
 
   return (
@@ -48,6 +56,41 @@ function Navbar() {
               <li><Link to="/about">About</Link></li>
               <li><Link to="/contact">Contact Us</Link></li>
             </ul>
+            {isAuthenticated ? (
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
+                  {user?.avatar ? (
+                    <img src={user.avatar} alt={user.name} className="w-8 h-8 rounded-full" />
+                  ) : (
+                    <div className="w-8 h-8 rounded-full bg-[#ff5959] flex items-center justify-center text-white font-bold">
+                      {user?.name?.charAt(0).toUpperCase()}
+                    </div>
+                  )}
+                  <span className="text-sm">{user?.name}</span>
+                </div>
+                <button
+                  onClick={handleLogout}
+                  className="bg-gray-600 text-white py-2 px-6 font-bold rounded hover:bg-gray-700 transition-all"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-4">
+                <Link
+                  to="/login"
+                  className="text-white py-2 px-6 font-semibold rounded hover:text-[#ff5959] transition-all"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  className="bg-[#ff5959] text-white py-2 px-6 font-bold rounded hover:bg-[#e64e4e] transition-all"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            )}
              <button
                 className="bg-[#ff5959] text-[#ffffff] py-3 px-10 font-bold rounded hover:bg-[#f0f0f0] hover:scale-105 transition-all duration-200"
                 onClick={handleSubscribeModel}
@@ -99,6 +142,33 @@ function Navbar() {
               <li><Link to="/blogs">Blogs</Link></li>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/contact">Contact Us</Link></li>
+              {isAuthenticated ? (
+                <>
+                  <li className="flex items-center gap-2">
+                    {user?.avatar ? (
+                      <img src={user.avatar} alt={user.name} className="w-8 h-8 rounded-full" />
+                    ) : (
+                      <div className="w-8 h-8 rounded-full bg-[#ff5959] flex items-center justify-center text-white font-bold">
+                        {user?.name?.charAt(0).toUpperCase()}
+                      </div>
+                    )}
+                    <span>{user?.name}</span>
+                  </li>
+                  <li>
+                    <button
+                      onClick={handleLogout}
+                      className="bg-gray-600 text-white py-2 px-6 font-bold rounded hover:bg-gray-700 transition-all"
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li><Link to="/login">Login</Link></li>
+                  <li><Link to="/register">Sign Up</Link></li>
+                </>
+              )}
             </ul>
 
             <div
